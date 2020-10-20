@@ -1,7 +1,6 @@
 language: python
 os:
   - linux
-  - osx
 python:
   - "3.10-dev"
   - "3.9-dev"
