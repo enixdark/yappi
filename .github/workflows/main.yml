@@ -16,17 +16,24 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: macOS-latest
-    
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    strategy:
+      matrix:
+        python:
+          - 2.7.16
+          - 3.5.9
+          - 3.6.10
+          - 3.7.7
+          - 3.8.2
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: setup pyenv
-        uses: gabrielfalcao/pyenv-action@v6
+      - name: setup python
+        uses: gabrielfalcao/pyenv-action@v5
         with:
-          default: 3.7.7
-          versions: 2.7.16, 3.5.9, 3.6.10, 3.7.7, 3.8.2
+          default: "${{ matrix.python }}"
+          command: |
+            pip install .[test]
+            python run_tests.py
 
       - name: debug
         run: pyenv versions
