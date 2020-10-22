@@ -8,8 +8,6 @@ from utils import YappiUnitTestCase, find_stat_by_name, burn_cpu, burn_io
 class MultiThreadTests(YappiUnitTestCase):
 
     def test_tagging_walltime(self):
-        return  # TODO:
-
         tlocal = threading.local()
 
         def tag_cbk():
