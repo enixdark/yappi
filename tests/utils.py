@@ -68,7 +68,7 @@ class YappiUnitTestCase(unittest.TestCase):
                     self.assert_almost_equal(ttot_orig, ctx.ttot, err_msg=tline)
 
     def assert_almost_equal(
-        self, x, y, negative_err=0.2, positive_err=0.6, err_msg=None
+        self, x, y, negative_err=0.2, positive_err=0.8, err_msg=None
     ):
         pos_epsilon = (x * positive_err)
         neg_epsilon = (x * negative_err)
